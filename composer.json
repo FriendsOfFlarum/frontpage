@@ -1,0 +1,36 @@
+{
+    "name": "fixer112/flarum-frontpage",
+    "description": "Flarum extension to mark discussion as frontpage.",
+    "type": "flarum-extension",
+    "keywords": ["frontpage", "flarum-extension", "discussion"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abubakar Lawal",
+            "email": "abula3003@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/fixer112/flarum-frontpage/issues",
+        "source": "https://github.com/fixer112/flarum-frontpage"
+    },
+    "require": {
+        "flarum/core": "^0.1.0-beta.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "fixer112\\frontpage\\": "src/"
+        }
+    },
+    "extra": {
+        
+        "flarum-extension": {
+            "title": "Frontpage",
+            "icon": {
+                "name": "home",
+                "backgroundColor": "#7fba00",
+                "color": "#fff"
+            }
+        }
+    }
+}

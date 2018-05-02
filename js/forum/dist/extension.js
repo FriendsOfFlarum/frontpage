@@ -9,8 +9,6 @@ System.register('fixer112/frontpage/addfrontpage', ['flarum/extend', 'flarum/uti
     extend(DiscussionControls, 'moderationControls', function (items, discussion) {
 
       var isfront = discussion.frontpage();
-      var d = new Date();
-      var date = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/');
       if (discussion.front()) {
         items.add('frontpage', Button.component({
           children: discussion.frontpage() ? 'unfront' : 'front',

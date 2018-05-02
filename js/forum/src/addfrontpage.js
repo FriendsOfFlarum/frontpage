@@ -13,8 +13,6 @@ export default function addfrontpage() {
   extend(DiscussionControls, 'moderationControls', function(items, discussion) {
     
     let isfront = discussion.frontpage();
-    let d = new Date();
-    let date = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/');
     if (discussion.front()) {
       items.add('frontpage', Button.component({
         children: discussion.frontpage() ? 'unfront' : 'front',

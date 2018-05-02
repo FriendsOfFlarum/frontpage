@@ -6,4 +6,4 @@ Currently the extension just mark a discussion as frontpage, there is no page to
 
 ### Features to add
 
-**Frontpage for discussions with frontpage** 
+* Frontpage for discussions with frontpage

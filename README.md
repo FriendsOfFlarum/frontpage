@@ -10,7 +10,7 @@ Update flarum composer.json
 
 ```
  "require": {
-		"fixer112/flarum-frontpage": "1.0.*"
+		"fixer112/flarum-frontpage": "0.1.*"
     }
 ```
 

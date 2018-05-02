@@ -2,6 +2,6 @@ var gulp = require('flarum-gulp');
 
 gulp({
   modules: {
-    'flarum/sticky': 'src/**/*.js'
+    'fixer112/frontpage': 'src/**/*.js'
   }
 });

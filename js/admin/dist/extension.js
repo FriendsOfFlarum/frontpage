@@ -1,6 +1,6 @@
 'use strict';
 
-System.register('flarum/sticky/main', ['flarum/extend', 'flarum/app', 'flarum/components/PermissionGrid'], function (_export, _context) {
+System.register('fixer112/frontpage/main', ['flarum/extend', 'flarum/app', 'flarum/components/PermissionGrid'], function (_export, _context) {
   "use strict";
 
   var extend, app, PermissionGrid;
@@ -16,11 +16,11 @@ System.register('flarum/sticky/main', ['flarum/extend', 'flarum/app', 'flarum/co
 
       app.initializers.add('fixer112-frontpage', function () {
         extend(PermissionGrid.prototype, 'moderateItems', function (items) {
-          items.add('front', {
+          items.add('frontpage', {
             icon: 'home',
-            label: 'Frontpage discussion',
+            label: 'frontpage',
             permission: 'discussion.front'
-          }, 96);
+          });
         });
       });
     }

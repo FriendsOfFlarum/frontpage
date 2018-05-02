@@ -4,10 +4,10 @@ import PermissionGrid from 'flarum/components/PermissionGrid';
 
 app.initializers.add('fixer112-frontpage', () => {
   extend(PermissionGrid.prototype, 'moderateItems', items => {
-    items.add('front', {
+    items.add('frontpage', {
       icon: 'home',
-      label: 'Frontpage discussion',
+      label: 'frontpage',
       permission: 'discussion.front'
-    }, 96);
+    });
   });
 });

@@ -6,12 +6,8 @@ Currently the extension just mark a discussion as frontpage, there is no page to
 
 ## How To Use
 
-Update flarum composer.json
-
 ```
- "require": {
-		"fixer112/flarum-frontpage": "0.1.*"
-    }
+ composer require fixer112/flarum-frontpage
 ```
 
 ### Features to add

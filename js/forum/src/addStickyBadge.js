@@ -9,7 +9,7 @@ export default function addStickyBadge() {
 
   extend(Discussion.prototype, 'badges', function(badges, discussion) {
     if (this.frontpage()) {
-      badges.add('sticky', Badge.component({
+      badges.add('frontpage', Badge.component({
         type: 'front',
         label: 'front',
         icon: 'home'

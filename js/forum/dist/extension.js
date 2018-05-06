@@ -48,6 +48,50 @@ System.register('fixer112/frontpage/addfrontpage', ['flarum/extend', 'flarum/uti
 });;
 'use strict';
 
+System.register('fixer112/frontpage/addfrontsort', ['flarum/extend', 'flarum/components/DiscussionList'], function (_export, _context) {
+  "use strict";
+
+  var extend, DiscussionList;
+
+  _export('default', function () {
+    extend(DiscussionList.prototype, 'sortMap', function (map) {
+      //var sortValus = require('sort')
+      map.front = '-frontdate';
+
+      var keys = [];
+      var values = [];
+
+      var newObj = {};
+
+      Object.keys(map).forEach(function (key, index) {
+        keys[index] = key;
+        values[index] = map[key];
+      });
+
+      for (var i = keys.length - 1; i >= 0; i--) {
+        newObj[keys[i]] = values[i];
+      }
+
+      return newObj;
+    });
+
+    extend(DiscussionList.prototype, 'requestParams', function (params) {
+      //params.filter.q = ['frontpage', true];
+      //params.sort = reverse(this.sortMap())[this.props.params.sort];
+    });
+  });
+
+  return {
+    setters: [function (_flarumExtend) {
+      extend = _flarumExtend.extend;
+    }, function (_flarumComponentsDiscussionList) {
+      DiscussionList = _flarumComponentsDiscussionList.default;
+    }],
+    execute: function () {}
+  };
+});;
+'use strict';
+
 System.register('fixer112/frontpage/addStickyBadge', ['flarum/extend', 'flarum/Model', 'flarum/models/Discussion', 'flarum/components/Badge'], function (_export, _context) {
   "use strict";
 
@@ -56,7 +100,7 @@ System.register('fixer112/frontpage/addStickyBadge', ['flarum/extend', 'flarum/M
 
     extend(Discussion.prototype, 'badges', function (badges, discussion) {
       if (this.frontpage()) {
-        badges.add('sticky', Badge.component({
+        badges.add('frontpage', Badge.component({
           type: 'front',
           label: 'front',
           icon: 'home'
@@ -85,16 +129,18 @@ System.register('fixer112/frontpage/addStickyBadge', ['flarum/extend', 'flarum/M
 });;
 'use strict';
 
-System.register('fixer112/frontpage/main', ['flarum/extend', 'flarum/app', 'fixer112/frontpage/addfrontpage', 'fixer112/frontpage/addStickyBadge'], function (_export, _context) {
+System.register('fixer112/frontpage/main', ['flarum/extend', 'flarum/app', 'fixer112/frontpage/addfrontsort', 'fixer112/frontpage/addfrontpage', 'fixer112/frontpage/addStickyBadge'], function (_export, _context) {
   "use strict";
 
-  var extend, notificationType, app, addfrontpage, addStickyBadge;
+  var extend, notificationType, app, addfrontsort, addfrontpage, addStickyBadge;
   return {
     setters: [function (_flarumExtend) {
       extend = _flarumExtend.extend;
       notificationType = _flarumExtend.notificationType;
     }, function (_flarumApp) {
       app = _flarumApp.default;
+    }, function (_fixer112FrontpageAddfrontsort) {
+      addfrontsort = _fixer112FrontpageAddfrontsort.default;
     }, function (_fixer112FrontpageAddfrontpage) {
       addfrontpage = _fixer112FrontpageAddfrontpage.default;
     }, function (_fixer112FrontpageAddStickyBadge) {
@@ -105,6 +151,7 @@ System.register('fixer112/frontpage/main', ['flarum/extend', 'flarum/app', 'fixe
       app.initializers.add('fixer112-frontpage', function () {
         ;
 
+        addfrontsort();
         addfrontpage();
         addStickyBadge();
       });

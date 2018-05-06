@@ -16,4 +16,5 @@ return function (Dispatcher $events) {
 	$events->subscribe(Listener\AddApiAttributes::class);
     $events->subscribe(Listener\AddClientAssets::class);
     $events->subscribe(Listener\SaveFrontToDatabase::class);
+    $events->subscribe(Listener\AddFrontpage::class);
 };

@@ -51,6 +51,4 @@ class AddApiAttributes
             $event->attributes['front'] = (bool) $event->actor->can('front', $event->model);
         }
     }
-
-    
 }

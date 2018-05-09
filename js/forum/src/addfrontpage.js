@@ -15,7 +15,7 @@ export default function addfrontpage() {
     let isfront = discussion.frontpage();
     if (discussion.front()) {
       items.add('frontpage', Button.component({
-        children: discussion.frontpage() ? 'unfront' : 'front',
+        children: discussion.frontpage() ? 'Unfront' : 'Front',
         icon: 'home',
         onclick: () => {
           isfront = !isfront;

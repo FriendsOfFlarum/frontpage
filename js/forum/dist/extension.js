@@ -11,7 +11,7 @@ System.register('fixer112/frontpage/addfrontpage', ['flarum/extend', 'flarum/uti
       var isfront = discussion.frontpage();
       if (discussion.front()) {
         items.add('frontpage', Button.component({
-          children: discussion.frontpage() ? 'unfront' : 'front',
+          children: discussion.frontpage() ? 'Unfront' : 'Front',
           icon: 'home',
           onclick: function onclick() {
             isfront = !isfront;
@@ -49,46 +49,42 @@ System.register('fixer112/frontpage/addfrontpage', ['flarum/extend', 'flarum/uti
 'use strict';
 
 System.register('fixer112/frontpage/addfrontsort', ['flarum/extend', 'flarum/components/DiscussionList'], function (_export, _context) {
-  "use strict";
+	"use strict";
 
-  var extend, DiscussionList;
+	var extend, DiscussionList;
 
-  _export('default', function () {
-    extend(DiscussionList.prototype, 'sortMap', function (map) {
-      //var sortValus = require('sort')
-      map.front = '-frontdate';
+	_export('default', function () {
+		extend(DiscussionList.prototype, 'requestParams', function (params) {
 
-      var keys = [];
-      var values = [];
+			if (this.props.params.sort === 'front') {
 
-      var newObj = {};
+				params.filter.q = (params.filter.q || '') + 'is:frontpage';
+			}
+		});
 
-      Object.keys(map).forEach(function (key, index) {
-        keys[index] = key;
-        values[index] = map[key];
-      });
+		extend(DiscussionList.prototype, 'sortMap', function (map) {
 
-      for (var i = keys.length - 1; i >= 0; i--) {
-        newObj[keys[i]] = values[i];
-      }
+			//delete map.latest;
+			delete map.top;
+			delete map.newest;
+			delete map.oldest;
 
-      return newObj;
-    });
+			map.front = '-frontdate';
+			//map.latest = '-lastTime';
+			map.top = '-commentsCount';
+			map.newest = '-startTime';
+			map.oldest = 'startTime';
+		});
+	});
 
-    extend(DiscussionList.prototype, 'requestParams', function (params) {
-      //params.filter.q = ['frontpage', true];
-      //params.sort = reverse(this.sortMap())[this.props.params.sort];
-    });
-  });
-
-  return {
-    setters: [function (_flarumExtend) {
-      extend = _flarumExtend.extend;
-    }, function (_flarumComponentsDiscussionList) {
-      DiscussionList = _flarumComponentsDiscussionList.default;
-    }],
-    execute: function () {}
-  };
+	return {
+		setters: [function (_flarumExtend) {
+			extend = _flarumExtend.extend;
+		}, function (_flarumComponentsDiscussionList) {
+			DiscussionList = _flarumComponentsDiscussionList.default;
+		}],
+		execute: function () {}
+	};
 });;
 'use strict';
 

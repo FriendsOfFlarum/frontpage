@@ -17,4 +17,5 @@ return function (Dispatcher $events) {
     $events->subscribe(Listener\AddClientAssets::class);
     $events->subscribe(Listener\SaveFrontToDatabase::class);
     $events->subscribe(Listener\AddFrontpage::class);
+    $events->subscribe(Listener\FilterFrontpage::class);
 };

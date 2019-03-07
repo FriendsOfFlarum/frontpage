@@ -1,36 +1,42 @@
 {
-    "name": "fixer112/flarum-frontpage",
-    "description": "Flarum extension to mark discussion as frontpage.",
-    "type": "flarum-extension",
-    "keywords": ["frontpage", "flarum-extension", "discussion"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Abubakar Lawal",
-            "email": "abula3003@gmail.com"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/fixer112/flarum-frontpage/issues",
-        "source": "https://github.com/fixer112/flarum-frontpage"
+  "name": "fof/frontpage",
+  "description": "Push discussions to the front of your Flarum forum index!",
+  "keywords": [
+    "flarum"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "^0.1.0-beta.8"
+  },
+  "authors": [
+    {
+      "name": "Abubakar Lawal",
+      "email": "abula3003@gmail.com",
+      "role": "Developer"
     },
-    "require": {
-        "flarum/core": "^0.1.0-beta.7"
-    },
-    "autoload": {
-        "psr-4": {
-            "fixer112\\frontpage\\": "src/"
-        }
-    },
-    "extra": {
-        
-        "flarum-extension": {
-            "title": "Frontpage",
-            "icon": {
-                "name": "home",
-                "backgroundColor": "#7fba00",
-                "color": "#fff"
-            }
-        }
+    {
+      "name": "Christian Lopez",
+      "email": "Christian.L@redevs.org",
+      "role": "Developer"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "FoF\\FrontPage\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "FoF FrontPage",
+      "icon": {
+        "name": "fas fa-home",
+        "backgroundColor": "#e74c3c",
+        "color": "#fff"
+      }
+    },
+    "flagrow": {
+      "discuss": ""
+    }
+  }
 }

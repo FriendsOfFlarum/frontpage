@@ -1,20 +1,37 @@
-# flarum-frontpage
+# FrontPage by FriendsOfFlarum
 
-**Flarum extension to mark discussion as frontpage.**
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/fof/frontpage.svg)](https://packagist.org/packages/fof/frontpage)
 
+A [Flarum](http://flarum.org) extension. Push discussions to the front of your Flarum forum index!
 
-## How To Use
+![](https://user-images.githubusercontent.com/25584514/39542395-573a731e-4e40-11e8-9bab-5bfdcbdf9303.PNG)
+![](https://user-images.githubusercontent.com/25584514/39542400-60b67992-4e40-11e8-93de-0ce9b01d8418.PNG)
+![](https://user-images.githubusercontent.com/25584514/39542412-686d2a78-4e40-11e8-8ab5-9b96f06ac094.PNG)
+![](https://user-images.githubusercontent.com/25584514/39545111-12eb95d2-4e48-11e8-8fb9-d33d25021f8b.PNG)
 
+### Installation
+
+Use [Bazaar](https://discuss.flarum.org/d/5151-flagrow-bazaar-the-extension-marketplace) or install manually with composer:
+
+```sh
+composer require fof/frontpage
 ```
- composer require fixer112/flarum-frontpage
+
+### Updating
+
+```sh
+composer update fof/frontpage
+php flarum cache:clear
 ```
 
-### Features to add
+### Features to Add by Fixer112
+- [x] ~~Frontpage for discussions with frontpage~~
+- [ ] Frontpage as default sort in index page
 
-* ~~Frontpage for discussions with frontpage~~
-* Frontpage as default sort in index page
+### Links
 
-q![front1](https://user-images.githubusercontent.com/25584514/39542395-573a731e-4e40-11e8-9bab-5bfdcbdf9303.PNG)
-![front2](https://user-images.githubusercontent.com/25584514/39542400-60b67992-4e40-11e8-93de-0ce9b01d8418.PNG)
-![front3](https://user-images.githubusercontent.com/25584514/39542412-686d2a78-4e40-11e8-8ab5-9b96f06ac094.PNG)
-![front4](https://user-images.githubusercontent.com/25584514/39545111-12eb95d2-4e48-11e8-8fb9-d33d25021f8b.PNG)
+- [Packagist](https://packagist.org/packages/fof/frontpage)
+- [GitHub]()
+- [Fixer112's flarum-frontpage](https://github.com/fixer112/flarum-frontpage)
+
+An extension by [FriendsOfFlarum](https://github.com/FriendsOfFlarum), revival commissioned by...

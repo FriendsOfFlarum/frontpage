@@ -12,7 +12,7 @@ export default function addStickyBadge() {
       badges.add('frontpage', Badge.component({
         type: 'front',
         label: 'front',
-        icon: 'home'
+        icon: 'fas fa-home'
       }), 10);
     }
   });

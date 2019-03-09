@@ -7,17 +7,17 @@ import Discussion from 'flarum/models/Discussion';
 Discussion.prototype.frontpage = Model.attribute('frontpage');
 Discussion.prototype.front = Model.attribute('front');
 
-export default function addfrontpage() {
+export default function addFrontPage() {
   extend(PostControls, 'moderationControls', function(items, post) {
-    let isfront = post.discussion().frontpage();
+    let isFront = post.discussion().frontpage();
 
     if (post.discussion().front()) {
       items.add('frontpage', Button.component({
-        children: post.discussion().frontpage() ? 'Pull from FrontPage' : 'Push to FrontPage',
+        children: app.translator.trans(post.discussion().frontpage() ? 'core.forum.post_controls.pull_to_front_button' : 'core.forum.post_controls.push_to_front_button'),
         icon: 'fas fa-home',
         onclick: () => {
-          isfront = !isfront;
-          post.discussion().save({frontpage: isfront});
+          isFront = !isFront;
+          post.discussion().save({frontpage: isFront});
         }
       }));
     }

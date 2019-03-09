@@ -25,8 +25,8 @@ php flarum cache:clear
 ```
 
 ### Features to Add by Fixer112
-- [x] ~~Frontpage for discussions with frontpage~~
-- [ ] Frontpage as default sort in index page
+- [x] ~~Added a "FrontPage" sort order option for discussions marked as "FrontPage"~~
+- [ ] Add an option to add FrontPage as the default sort order on the index page.
 
 ### Links
 

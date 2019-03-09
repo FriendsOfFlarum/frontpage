@@ -28,6 +28,11 @@ php flarum cache:clear
 - [x] ~~Added a "FrontPage" sort order option for discussions marked as "FrontPage"~~
 - [ ] Add an option to add FrontPage as the default sort order on the index page.
 
+### Features to Add by Friends of Flarum
+- [ ] Add "Push to FrontPage" and "Pull from FrontPage" discussion controls to IndexPage.
+- [ ] Refactor to add redraw() functionality to dynamically update the DOM after the push/pulls 
+buttons are clicked on so no page refresh will be needed.
+
 ### Links
 
 - [Packagist](https://packagist.org/packages/fof/frontpage)

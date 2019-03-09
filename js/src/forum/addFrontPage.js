@@ -13,7 +13,7 @@ export default function addFrontPage() {
 
     if (post.discussion().front()) {
       items.add('frontpage', Button.component({
-        children: app.translator.trans(post.discussion().frontpage() ? 'core.forum.post_controls.pull_to_front_button' : 'core.forum.post_controls.push_to_front_button'),
+        children: app.translator.trans(post.discussion().frontpage() ? 'core.forum.post_controls.pull_from_front_button' : 'core.forum.post_controls.push_to_front_button'),
         icon: 'fas fa-home',
         onclick: () => {
           isFront = !isFront;

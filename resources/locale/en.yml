@@ -6,7 +6,7 @@ core:
       frontpage_tooltip: Marked as FrontPage
     post_controls:
       push_to_front_button: Push to FrontPage
-      pull_to_front_button: Pull to FrontPage
+      pull_to_front_button: Pull from FrontPage
   admin:
     permissions:
       can_push_to_frontpage_label: Can Push to FrontPage

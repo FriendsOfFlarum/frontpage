@@ -17,8 +17,8 @@ export default function () {
     delete map.oldest;
 
     map.front = '-frontdate';
-    map.top = '-commentsCount';
-    map.newest = '-startTime';
-    map.oldest = 'startTime';
+    map.top = '-commentCount';
+    map.newest = '-createdAt';
+    map.oldest = 'createdAt';
   });
 }

@@ -2,3 +2,7 @@ core:
   forum:
     index_sort:
       front_button: FrontPage
+  admin:
+    permissions:
+      can_push_to_frontpage_label: Can Push to FrontPage
+

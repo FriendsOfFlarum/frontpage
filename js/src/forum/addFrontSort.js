@@ -11,11 +11,12 @@ export default function () {
 
   extend(DiscussionList.prototype, 'sortMap', function (map) {
 
-    // Delete map.latest;
+    // Delete Mapping
     delete map.top;
     delete map.newest;
     delete map.oldest;
 
+    // Re-Add Mapping to Redo Sort Order
     map.front = '-frontdate';
     map.top = '-commentCount';
     map.newest = '-createdAt';

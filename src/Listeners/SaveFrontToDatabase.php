@@ -42,8 +42,6 @@ class SaveFrontToDatabase
             if ((bool)$discussion->frontpage === $front) {
                 return;
             }
-            $attributes = array_get($event->data, 'attributes', []);
-
             $discussion->frontdate = new DateTime();
 
             $discussion->frontpage = $front;

@@ -9,7 +9,7 @@ export default function addStickyBadge() {
   extend(Discussion.prototype, 'badges', function(badges) {
     if (this.frontpage()) {
       badges.add('frontpage', Badge.component({
-        type: 'front',
+        type: 'frontpage',
         label: app.translator.trans('core.forum.badge.frontpage_tooltip'),
         icon: 'fas fa-home'
       }), 10);

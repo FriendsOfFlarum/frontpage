@@ -4,10 +4,19 @@
 
 A [Flarum](http://flarum.org) extension. Push discussions to the front of your Flarum forum index!
 
-![](https://user-images.githubusercontent.com/25584514/39542395-573a731e-4e40-11e8-9bab-5bfdcbdf9303.PNG)
-![](https://user-images.githubusercontent.com/25584514/39542400-60b67992-4e40-11e8-93de-0ce9b01d8418.PNG)
-![](https://user-images.githubusercontent.com/25584514/39542412-686d2a78-4e40-11e8-8ab5-9b96f06ac094.PNG)
-![](https://user-images.githubusercontent.com/25584514/39545111-12eb95d2-4e48-11e8-8fb9-d33d25021f8b.PNG)
+![](https://i.imgur.com/kwTp4ad.jpg)
+
+![](https://i.imgur.com/lVCGW5T.jpg)
+
+![](https://i.imgur.com/pPh6Ous.jpg)
+
+![](https://i.imgur.com/rcUDOJ3.jpg)
+
+![](https://i.imgur.com/7ec2f5r.jpg)
+
+![](https://i.imgur.com/g9Z4B7r.jpg)
+
+![](https://i.imgur.com/pbk6JaN.jpg)
 
 ### Installation
 
@@ -29,14 +38,14 @@ php flarum cache:clear
 - [ ] Add an option to add FrontPage as the default sort order on the index page.
 
 ### Features to Add by Friends of Flarum
-- [ ] Add "Push to FrontPage" and "Pull from FrontPage" discussion controls to IndexPage.
+- [ ] Add "Push to FrontPage" and "Pull from FrontPage" discussion controls to IndexPage instead of post controls (should behave like the Sticky extension).
 - [ ] Refactor to add redraw() functionality to dynamically update the DOM after the push/pulls 
 buttons are clicked on so no page refresh will be needed.
 
 ### Links
 
 - [Packagist](https://packagist.org/packages/fof/frontpage)
-- [GitHub]()
+- [GitHub](https://github.com/friendsofflarum/frontpage)
 - [Fixer112's flarum-frontpage](https://github.com/fixer112/flarum-frontpage)
 
-An extension by [FriendsOfFlarum](https://github.com/FriendsOfFlarum), revival commissioned by...
+An extension by [FriendsOfFlarum](https://github.com/FriendsOfFlarum), revival requested by...a VERY eager client!!

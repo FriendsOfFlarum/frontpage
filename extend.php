@@ -24,7 +24,7 @@ return [
     function (Dispatcher $events) {
         $events->subscribe(Listeners\AddApiAttributes::class);
         $events->subscribe(Listeners\SaveFrontToDatabase::class);
-        $events->subscribe(Listeners\AddFrontpage::class);
+        $events->subscribe(Listeners\AddFrontPage::class);
         $events->subscribe(Listeners\FilterFrontPage::class);
     },
 ];

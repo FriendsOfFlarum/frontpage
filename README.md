@@ -4,7 +4,7 @@
 
 A [Flarum](http://flarum.org) extension. Push discussions to the front of your Flarum forum index!
 
-![](https://i.imgur.com/kwTp4ad.jpg)
+![](https://i.imgur.com/OyK9qqt.jpg)
 
 ![](https://i.imgur.com/lVCGW5T.jpg)
 
@@ -14,7 +14,7 @@ A [Flarum](http://flarum.org) extension. Push discussions to the front of your F
 
 ![](https://i.imgur.com/7ec2f5r.jpg)
 
-![](https://i.imgur.com/g9Z4B7r.jpg)
+![](https://i.imgur.com/pJ8lJl7.jpg)
 
 ![](https://i.imgur.com/pbk6JaN.jpg)
 
@@ -38,7 +38,7 @@ php flarum cache:clear
 - [ ] Add an option to add FrontPage as the default sort order on the index page.
 
 ### Features to Add by Friends of Flarum
-- [ ] Add "Push to FrontPage" and "Pull from FrontPage" discussion controls to IndexPage instead of post controls (should behave like the Sticky extension).
+- [x] ~~Add "Push to FrontPage" and "Pull from FrontPage" discussion controls to IndexPage instead of post controls (should behave like the Sticky extension).~~
 - [ ] Refactor to add redraw() functionality to dynamically update the DOM after the push/pulls 
 buttons are clicked on so no page refresh will be needed.
 

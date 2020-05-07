@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Fof\FrontPage\Listeners;
+namespace FoF\FrontPage\Listeners;
 
 use DateTime;
 use Flarum\User\AssertPermissionTrait;

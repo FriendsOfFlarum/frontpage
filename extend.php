@@ -11,8 +11,12 @@
 
 namespace FoF\FrontPage;
 
+use Flarum\Api\Event\Serializing;
+use Flarum\Api\Event\WillGetData;
+use Flarum\Discussion\Discussion;
+use Flarum\Discussion\Event\Saving;
+use Flarum\Event\ConfigureDiscussionGambits;
 use Flarum\Extend;
-use Illuminate\Events\Dispatcher;
 
 return [
     (new Extend\Frontend('forum'))
@@ -21,10 +25,11 @@ return [
     (new Extend\Frontend('admin'))
         ->js(__DIR__ . '/js/dist/admin.js'),
     new Extend\Locales(__DIR__ . '/resources/locale'),
-    function (Dispatcher $events) {
-        $events->subscribe(Listeners\AddApiAttributes::class);
-        $events->subscribe(Listeners\SaveFrontToDatabase::class);
-        $events->subscribe(Listeners\AddFrontPage::class);
-        $events->subscribe(Listeners\FilterFrontPage::class);
-    },
+    (new Extend\Event)
+        ->listen(Serializing::class, Listeners\AddApiAttributes::class)
+        ->listen(Saving::class, Listeners\SaveFrontToDatabase::class)
+        ->listen(WillGetData::class, Listeners\AddFrontPage::class)
+        ->listen(ConfigureDiscussionGambits::class, Listeners\FilterFrontPage::class),
+    (new Extend\Model(Discussion::class))
+        ->dateAttribute('frontdate')
 ];

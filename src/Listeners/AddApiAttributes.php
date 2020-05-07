@@ -12,36 +12,14 @@
 namespace FoF\FrontPage\Listeners;
 
 use Flarum\Api\Serializer\DiscussionSerializer;
-use Flarum\Discussion\Discussion;
-use Flarum\Event\ConfigureModelDates;
 use Flarum\Api\Event\Serializing;
-use Illuminate\Contracts\Events\Dispatcher;
 
 class AddApiAttributes
 {
     /**
-     * @param Dispatcher $events
-     */
-    public function subscribe(Dispatcher $events)
-    {
-        $events->listen(Serializing::class, [$this, 'prepareApiAttributes']);
-        $events->listen(ConfigureModelDates::class, [$this, 'addDates']);
-    }
-
-    /**
-     * @param ConfigureModelDates $event
-     */
-    public function addDates(ConfigureModelDates $event)
-    {
-        if ($event->isModel(Discussion::class)) {
-            $event->dates[] = 'frontdate';
-        }
-    }
-
-    /**
      * @param Serializing $event
      */
-    public function prepareApiAttributes(Serializing $event)
+    public function handle(Serializing $event)
     {
         if ($event->isSerializer(DiscussionSerializer::class)) {
             $event->attributes['frontpage'] = (bool)$event->model->frontpage;

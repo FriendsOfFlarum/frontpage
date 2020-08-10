@@ -11,10 +11,10 @@
 
 namespace FoF\FrontPage\Listeners;
 
+use Flarum\Api\Event\Serializing;
 use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Event\ConfigureModelDates;
-use Flarum\Api\Event\Serializing;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class AddApiAttributes
@@ -44,9 +44,9 @@ class AddApiAttributes
     public function prepareApiAttributes(Serializing $event)
     {
         if ($event->isSerializer(DiscussionSerializer::class)) {
-            $event->attributes['frontpage'] = (bool)$event->model->frontpage;
+            $event->attributes['frontpage'] = (bool) $event->model->frontpage;
             $event->attributes['frontdate'] = $event->formatDate($event->model->frontdate);
-            $event->attributes['front'] = (bool)$event->actor->can('front', $event->model);
+            $event->attributes['front'] = (bool) $event->actor->can('front', $event->model);
         }
     }
 }

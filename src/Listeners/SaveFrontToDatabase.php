@@ -12,8 +12,8 @@
 namespace FoF\FrontPage\Listeners;
 
 use DateTime;
-use Flarum\User\AssertPermissionTrait;
 use Flarum\Discussion\Event\Saving;
+use Flarum\User\AssertPermissionTrait;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class SaveFrontToDatabase
@@ -35,14 +35,15 @@ class SaveFrontToDatabase
     public function whenDiscussionWillBeSaved(Saving $event)
     {
         if (isset($event->data['attributes']['frontpage'])) {
-            $front = (bool)$event->data['attributes']['frontpage'];
+            $front = (bool) $event->data['attributes']['frontpage'];
             $discussion = $event->discussion;
             $actor = $event->actor;
             $this->assertCan($actor, 'front', $discussion);
-            if ((bool)$discussion->frontpage === $front) {
+            if ((bool) $discussion->frontpage === $front) {
                 return;
             }
-            $discussion->frontdate = new DateTime();
+
+            $discussion->frontdate = $front ? new DateTime() : null;
 
             $discussion->frontpage = $front;
         }

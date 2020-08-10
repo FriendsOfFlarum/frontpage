@@ -11,8 +11,8 @@
 
 namespace FoF\FrontPage\Listeners;
 
-use Illuminate\Contracts\Events\Dispatcher;
 use Flarum\Api\Event\WillGetData;
+use Illuminate\Contracts\Events\Dispatcher;
 
 class AddFrontPage
 {
@@ -30,5 +30,11 @@ class AddFrontPage
     public function confApi(WillGetData $event)
     {
         $event->addSortField('frontdate');
+
+        $sort = isset($_GET['sort']);
+        if (!$sort) {
+            $event->setSort(['frontdate' => 'asc']);
+        }
+
     }
 }

@@ -182,7 +182,6 @@ __webpack_require__.r(__webpack_exports__);
     map.top = '-commentCount';
     map.newest = '-createdAt';
     map.oldest = 'createdAt';
-    console.log(map);
   });
 });
 

@@ -25,6 +25,5 @@ export default function() {
         map.top = '-commentCount';
         map.newest = '-createdAt';
         map.oldest = 'createdAt';
-        console.log(map);
     });
 }

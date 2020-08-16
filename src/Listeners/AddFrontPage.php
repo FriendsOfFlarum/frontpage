@@ -33,7 +33,7 @@ class AddFrontPage
 
         $sort = isset($_GET['sort']);
         if (!$sort) {
-            $event->setSort(['frontpage' => 'desc', 'frontdate' => 'desc', 'lastPostedAt' => 'desc']);
+            $event->setSort(['is_sticky' => 'desc', 'frontpage' => 'desc', 'frontdate' => 'desc', 'lastPostedAt' => 'desc']);
         }
 
     }

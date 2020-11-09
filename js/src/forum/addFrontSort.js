@@ -1,25 +1,27 @@
 import {extend} from 'flarum/extend';
-import DiscussionList from 'flarum/components/DiscussionList';
+import DiscussionListState from 'flarum/states/DiscussionListState';
 
 export default function () {
-  extend(DiscussionList.prototype, 'requestParams', function (params) {
+  extend(DiscussionListState.prototype, 'requestParams', function (params) {
 
-    if (this.props.params.sort === 'front') {
+    if (app.current.get('routeName') === 'front') {
       params.filter.q = (params.filter.q || '') + 'is:frontpage';
     }
   });
 
-  extend(DiscussionList.prototype, 'sortMap', function (map) {
+  extend(DiscussionListState.prototype, 'sortMap', function (map) {
 
     // Delete Mapping
-    delete map.top;
+    delete map.latest;
     delete map.newest;
+    delete map.top;
     delete map.oldest;
 
     // Re-Add Mapping to Redo Sort Order
     map.front = '-frontdate';
-    map.top = '-commentCount';
+    map.latest = '-lastPostedAt';
     map.newest = '-createdAt';
     map.oldest = 'createdAt';
+    map.top = '-commentCount';
   });
 }

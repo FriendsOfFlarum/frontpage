@@ -12,13 +12,10 @@
 namespace FoF\FrontPage\Listeners;
 
 use DateTime;
-use Flarum\User\AssertPermissionTrait;
 use Flarum\Discussion\Event\Saving;
 
 class SaveFrontToDatabase
 {
-    use AssertPermissionTrait;
-
     /**
      * @param Saving $event
      * @throws \Flarum\User\Exception\PermissionDeniedException
@@ -29,7 +26,7 @@ class SaveFrontToDatabase
             $front = (bool)$event->data['attributes']['frontpage'];
             $discussion = $event->discussion;
             $actor = $event->actor;
-            $this->assertCan($actor, 'front', $discussion);
+            $actor->assertCan('front', $discussion);
             if ((bool)$discussion->frontpage === $front) {
                 return;
             }

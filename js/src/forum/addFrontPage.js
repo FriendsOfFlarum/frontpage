@@ -13,13 +13,12 @@ export default function addFrontPage() {
 
     if (discussion.front()) {
       items.add('frontpage', Button.component({
-        children: app.translator.trans(discussion.frontpage() ? 'core.forum.post_controls.pull_from_front_button' : 'core.forum.post_controls.push_to_front_button'),
         icon: 'fas fa-home',
         onclick: () => {
           isFront = !isFront;
           discussion.save({frontpage: isFront});
         }
-      }));
+      }, app.translator.trans(discussion.frontpage() ? 'core.forum.post_controls.pull_from_front_button' : 'core.forum.post_controls.push_to_front_button')));
     }
   });
 }

@@ -14,25 +14,16 @@ namespace FoF\FrontPage\Listeners;
 use DateTime;
 use Flarum\User\AssertPermissionTrait;
 use Flarum\Discussion\Event\Saving;
-use Illuminate\Contracts\Events\Dispatcher;
 
 class SaveFrontToDatabase
 {
     use AssertPermissionTrait;
 
     /**
-     * @param Dispatcher $events
-     */
-    public function subscribe(Dispatcher $events)
-    {
-        $events->listen(Saving::class, [$this, 'whenDiscussionWillBeSaved']);
-    }
-
-    /**
      * @param Saving $event
      * @throws \Flarum\User\Exception\PermissionDeniedException
      */
-    public function whenDiscussionWillBeSaved(Saving $event)
+    public function handle(Saving $event)
     {
         if (isset($event->data['attributes']['frontpage'])) {
             $front = (bool)$event->data['attributes']['frontpage'];

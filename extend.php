@@ -31,5 +31,5 @@ return [
         ->listen(WillGetData::class, Listeners\AddFrontPage::class)
         ->listen(ConfigureDiscussionGambits::class, Listeners\FilterFrontPage::class),
     (new Extend\Model(Discussion::class))
-        ->dateAttribute('frontdate')
+        ->dateAttribute('frontdate'),
 ];

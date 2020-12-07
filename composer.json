@@ -6,8 +6,13 @@
   ],
   "type": "flarum-extension",
   "license": "MIT",
+  "support": {
+    "issues": "https://github.com/FriendsOfFlarum/frontpage/issues",
+    "source": "https://github.com/FriendsOfFlarum/frontpage"
+  },
   "require": {
-    "flarum/core": "^0.1.0-beta.14"
+    "flarum/core": ">=0.1.0-beta.14 <0.1.0-beta.15",
+    "flarum/sticky": "*"
   },
   "authors": [
     {

@@ -21,15 +21,5 @@ class AddFrontPage
     public function handle(WillGetData $event)
     {
         $event->addSortField('frontdate');
-
-        $sort = isset($_GET['sort']);
-        if (!$sort) {
-            $event->setSort([
-                'is_sticky' => 'desc',
-                'frontpage' => 'desc',
-                'frontdate' => 'desc',
-                'lastPostedAt' => 'desc'
-            ]);
-        }
     }
 }

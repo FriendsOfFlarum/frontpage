@@ -12,19 +12,16 @@
 namespace FoF\FrontPage\Listeners;
 
 use Flarum\Api\Serializer\DiscussionSerializer;
-use Flarum\Api\Event\Serializing;
+use Flarum\Discussion\Discussion;
 
 class AddApiAttributes
 {
-    /**
-     * @param Serializing $event
-     */
-    public function handle(Serializing $event)
+    public function __invoke(DiscussionSerializer $serializer, Discussion $discussion, array $attributes): array
     {
-        if ($event->isSerializer(DiscussionSerializer::class)) {
-            $event->attributes['frontpage'] = (bool)$event->model->frontpage;
-            $event->attributes['frontdate'] = $event->formatDate($event->model->frontdate);
-            $event->attributes['front'] = (bool)$event->actor->can('front', $event->model);
-        }
+        $attributes['frontpage'] = (bool)$discussion->frontpage;
+        $attributes['frontdate'] = $serializer->formatDate($discussion->frontdate);
+        $attributes['front'] = (bool)$serializer->getActor()->can('front', $discussion);
+
+        return $attributes;
     }
 }

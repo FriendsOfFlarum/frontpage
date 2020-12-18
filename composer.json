@@ -1,47 +1,51 @@
 {
-  "name": "fof/frontpage",
-  "description": "Push discussions to the front of your Flarum forum index!",
-  "keywords": [
-    "flarum"
-  ],
-  "type": "flarum-extension",
-  "license": "MIT",
-  "support": {
-    "issues": "https://github.com/FriendsOfFlarum/frontpage/issues",
-    "source": "https://github.com/FriendsOfFlarum/frontpage"
-  },
-  "require": {
-    "flarum/core": ">=0.1.0-beta.14 <0.1.0-beta.15",
-    "flarum/sticky": "*"
-  },
-  "authors": [
-    {
-      "name": "Abubakar Lawal",
-      "email": "abula3003@gmail.com",
-      "role": "Developer"
+    "name": "fof/frontpage",
+    "description": "Push discussions to the front of your Flarum forum index!",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/FriendsOfFlarum/frontpage/issues",
+        "source": "https://github.com/FriendsOfFlarum/frontpage",
+        "forum": "https://discuss.flarum.org/d/19256"
     },
-    {
-      "name": "Christian Lopez",
-      "email": "Christian.L@redevs.org",
-      "role": "Developer"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "FoF\\FrontPage\\": "src/"
-    }
-  },
-  "extra": {
-    "flarum-extension": {
-      "title": "FoF FrontPage",
-      "icon": {
-        "name": "fas fa-home",
-        "backgroundColor": "#e74c3c",
-        "color": "#fff"
-      }
+    "homepage": "https://friendsofflarum.org",
+    "funding": [
+        {
+            "type": "website",
+            "url": "https://opencollective.com/fof/donate"
+        }
+    ],
+    "require": {
+        "flarum/core": "^0.1.0-beta.15",
+        "flarum/sticky": "*"
     },
-    "flagrow": {
-      "discuss": "https://discuss.flarum.org/d/19256"
+    "authors": [
+        {
+            "name": "Christian Lopez",
+            "email": "Christian.L@redevs.org",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FoF\\FrontPage\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "FoF FrontPage",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-home",
+                "backgroundColor": "#e74c3c",
+                "color": "#fff"
+            }
+        },
+        "flagrow": {
+            "discuss": "https://discuss.flarum.org/d/19256"
+        }
     }
-  }
 }

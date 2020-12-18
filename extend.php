@@ -11,7 +11,7 @@
 
 namespace FoF\FrontPage;
 
-use Flarum\Api\Controller\ShowForumController;
+use Flarum\Api\Controller\ListDiscussionsController;
 use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Discussion\Event\Saving;
@@ -37,6 +37,6 @@ return [
     (new Extend\ApiSerializer(DiscussionSerializer::class))
         ->mutate(Listeners\AddApiAttributes::class),
 
-    (new Extend\ApiController(ShowForumController::class))
+    (new Extend\ApiController(ListDiscussionsController::class))
         ->addSortField('frontdate'),
 ];

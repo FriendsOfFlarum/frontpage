@@ -3,7 +3,7 @@
 /*
  * This file is part of fof/frontpage.
  *
- * Copyright (c) 2019 FriendsOfFlarum.
+ * Copyright (c) FriendsOfFlarum.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,8 +15,9 @@ use Flarum\Api\Controller\ListDiscussionsController;
 use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Discussion\Event\Saving;
-use Flarum\Event\ConfigureDiscussionGambits;
+use Flarum\Discussion\Search\DiscussionSearcher;
 use Flarum\Extend;
+use FoF\FrontPage\Gambits\FrontGambit;
 
 return [
     (new Extend\Frontend('forum'))
@@ -28,14 +29,16 @@ return [
     new Extend\Locales(__DIR__ . '/resources/locale'),
 
     (new Extend\Event)
-        ->listen(Saving::class, Listeners\SaveFrontToDatabase::class)
-        ->listen(ConfigureDiscussionGambits::class, Listeners\FilterFrontPage::class),
+        ->listen(Saving::class, Listeners\SaveFrontToDatabase::class),
+
+    (new Extend\SimpleFlarumSearch(DiscussionSearcher::class))
+        ->addGambit(FrontGambit::class),
 
     (new Extend\Model(Discussion::class))
         ->dateAttribute('frontdate'),
 
     (new Extend\ApiSerializer(DiscussionSerializer::class))
-        ->mutate(Listeners\AddApiAttributes::class),
+        ->attributes(Listeners\AddApiAttributes::class),
 
     (new Extend\ApiController(ListDiscussionsController::class))
         ->addSortField('frontdate'),

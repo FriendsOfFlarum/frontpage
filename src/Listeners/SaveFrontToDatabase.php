@@ -3,7 +3,7 @@
 /*
  * This file is part of fof/frontpage.
  *
- * Copyright (c) 2019 FriendsOfFlarum.
+ * Copyright (c) FriendsOfFlarum.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,7 +18,8 @@ class SaveFrontToDatabase
 {
     /**
      * @param Saving $event
-     * @throws \Flarum\User\Exception\PermissionDeniedException
+     *
+     * @return [type]
      */
     public function handle(Saving $event)
     {

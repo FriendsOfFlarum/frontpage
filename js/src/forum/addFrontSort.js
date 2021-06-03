@@ -1,5 +1,5 @@
-import { extend } from 'flarum/extend';
-import DiscussionListState from 'flarum/states/DiscussionListState';
+import { extend } from 'flarum/common/extend';
+import DiscussionListState from 'flarum/forum/states/DiscussionListState';
 
 export default function () {
     extend(DiscussionListState.prototype, 'requestParams', function (params) {

@@ -1,7 +1,7 @@
-import { extend } from 'flarum/extend';
-import Model from 'flarum/Model';
-import Discussion from 'flarum/models/Discussion';
-import Badge from 'flarum/components/Badge';
+import { extend } from 'flarum/common/extend';
+import Model from 'flarum/common/Model';
+import Discussion from 'flarum/common/models/Discussion';
+import Badge from 'flarum/common/components/Badge';
 
 Discussion.prototype.frontpage = Model.attribute('frontpage');
 

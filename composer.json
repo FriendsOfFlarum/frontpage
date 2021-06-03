@@ -2,7 +2,9 @@
     "name": "fof/frontpage",
     "description": "Push discussions to the front of your Flarum forum index!",
     "keywords": [
-        "flarum"
+        "flarum",
+        "push-to-front",
+        "front-page"
     ],
     "type": "flarum-extension",
     "license": "MIT",
@@ -20,13 +22,12 @@
     ],
     "require": {
         "flarum/core": "^1.0",
-        "flarum/sticky": "*",
-        "fof/gamification": "^1.0"
+        "flarum/sticky": "*"
     },
     "authors": [
         {
             "name": "Christian Lopez",
-            "email": "Christian.L@redevs.org",
+            "email": "me@ralkage.com",
             "role": "Developer"
         }
     ],

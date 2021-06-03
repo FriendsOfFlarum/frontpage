@@ -16,8 +16,11 @@ use Flarum\Event\ConfigureDiscussionGambits;
 
 class FilterFrontPage
 {
+
     /**
      * @param ConfigureDiscussionGambits $event
+     *
+     * @return [type]
      */
     public function handle(ConfigureDiscussionGambits $event)
     {

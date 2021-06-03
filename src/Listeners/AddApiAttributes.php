@@ -16,6 +16,13 @@ use Flarum\Discussion\Discussion;
 
 class AddApiAttributes
 {
+    /**
+     * @param DiscussionSerializer $serializer
+     * @param Discussion $discussion
+     * @param array $attributes
+     *
+     * @return array
+     */
     public function __invoke(DiscussionSerializer $serializer, Discussion $discussion, array $attributes): array
     {
         $attributes['frontpage'] = (bool)$discussion->frontpage;

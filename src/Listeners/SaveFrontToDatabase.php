@@ -18,7 +18,8 @@ class SaveFrontToDatabase
 {
     /**
      * @param Saving $event
-     * @throws \Flarum\User\Exception\PermissionDeniedException
+     *
+     * @return [type]
      */
     public function handle(Saving $event)
     {

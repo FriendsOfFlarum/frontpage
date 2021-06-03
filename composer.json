@@ -20,7 +20,8 @@
     ],
     "require": {
         "flarum/core": "^1.0",
-        "flarum/sticky": "*"
+        "flarum/sticky": "*",
+        "fof/gamification": "^1.0"
     },
     "authors": [
         {

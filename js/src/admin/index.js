@@ -1,4 +1,4 @@
-import app from 'flarum/forum/app';
+import app from 'flarum/common/app';
 
 app.initializers.add('fof/frontpage', () => {
     app.extensionData.for('fof-frontpage').registerPermission(

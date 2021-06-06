@@ -18,16 +18,16 @@ class AddApiAttributes
 {
     /**
      * @param DiscussionSerializer $serializer
-     * @param Discussion $discussion
-     * @param array $attributes
+     * @param Discussion           $discussion
+     * @param array                $attributes
      *
      * @return array
      */
     public function __invoke(DiscussionSerializer $serializer, Discussion $discussion, array $attributes): array
     {
-        $attributes['frontpage'] = (bool)$discussion->frontpage;
+        $attributes['frontpage'] = (bool) $discussion->frontpage;
         $attributes['frontdate'] = $serializer->formatDate($discussion->frontdate);
-        $attributes['front'] = (bool)$serializer->getActor()->can('front', $discussion);
+        $attributes['front'] = (bool) $serializer->getActor()->can('front', $discussion);
 
         return $attributes;
     }

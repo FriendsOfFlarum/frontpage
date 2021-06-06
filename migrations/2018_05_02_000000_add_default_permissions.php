@@ -1,8 +1,8 @@
 <?php
 
-use Flarum\Group\Group;
 use Flarum\Database\Migration;
+use Flarum\Group\Group;
 
 return Migration::addPermissions([
-    'discussion.front' => Group::MODERATOR_ID
+    'discussion.front' => Group::MODERATOR_ID,
 ]);

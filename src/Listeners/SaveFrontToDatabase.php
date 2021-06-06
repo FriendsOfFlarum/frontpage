@@ -24,11 +24,11 @@ class SaveFrontToDatabase
     public function handle(Saving $event)
     {
         if (isset($event->data['attributes']['frontpage'])) {
-            $front = (bool)$event->data['attributes']['frontpage'];
+            $front = (bool) $event->data['attributes']['frontpage'];
             $discussion = $event->discussion;
             $actor = $event->actor;
             $actor->assertCan('front', $discussion);
-            if ((bool)$discussion->frontpage === $front) {
+            if ((bool) $discussion->frontpage === $front) {
                 return;
             }
             $discussion->frontdate = new DateTime();

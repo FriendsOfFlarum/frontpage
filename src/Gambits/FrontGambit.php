@@ -26,12 +26,12 @@ class FrontGambit extends AbstractRegexGambit
 
     /**
      * @param AbstractQueryState $search
-     * @param array $matches
-     * @param mixed $negate
+     * @param array              $matches
+     * @param mixed              $negate
      *
      * @return [type]
      */
-    public function conditions(AbstractQueryState  $search, array $matches, $negate)
+    public function conditions(AbstractQueryState $search, array $matches, $negate)
     {
         $search->getQuery()->where('frontpage', !$negate);
     }

@@ -18,5 +18,5 @@ return [
             $table->dropColumn('frontpage');
             $table->dropColumn('frontdate');
         });
-    }
+    },
 ];

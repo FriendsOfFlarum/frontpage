@@ -21,14 +21,14 @@ use FoF\FrontPage\Gambits\FrontGambit;
 
 return [
     (new Extend\Frontend('forum'))
-        ->js(__DIR__ . '/js/dist/forum.js')
-        ->css(__DIR__ . '/resources/less/forum.less'),
+        ->js(__DIR__.'/js/dist/forum.js')
+        ->css(__DIR__.'/resources/less/forum.less'),
 
     (new Extend\Frontend('admin'))
-        ->js(__DIR__ . '/js/dist/admin.js'),
-    new Extend\Locales(__DIR__ . '/resources/locale'),
+        ->js(__DIR__.'/js/dist/admin.js'),
+    new Extend\Locales(__DIR__.'/resources/locale'),
 
-    (new Extend\Event)
+    (new Extend\Event())
         ->listen(Saving::class, Listeners\SaveFrontToDatabase::class),
 
     (new Extend\SimpleFlarumSearch(DiscussionSearcher::class))

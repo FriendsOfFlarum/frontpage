@@ -15,6 +15,7 @@ use Flarum\Api\Controller\ListDiscussionsController;
 use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Discussion\Event\Saving;
+use Flarum\Discussion\Filter\DiscussionFilterer;
 use Flarum\Discussion\Search\DiscussionSearcher;
 use Flarum\Extend;
 use FoF\FrontPage\Gambits\FrontGambit;
@@ -33,6 +34,9 @@ return [
 
     (new Extend\SimpleFlarumSearch(DiscussionSearcher::class))
         ->addGambit(FrontGambit::class),
+
+    (new Extend\Filter(DiscussionFilterer::class))
+        ->addFilter(FrontGambit::class),
 
     (new Extend\Model(Discussion::class))
         ->dateAttribute('frontdate'),

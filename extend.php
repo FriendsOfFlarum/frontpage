@@ -18,7 +18,6 @@ use Flarum\Discussion\Event\Saving;
 use Flarum\Discussion\Filter\DiscussionFilterer;
 use Flarum\Discussion\Search\DiscussionSearcher;
 use Flarum\Extend;
-use FoF\FrontPage\Gambits\FrontGambit;
 
 return [
     (new Extend\Frontend('forum'))
@@ -33,10 +32,10 @@ return [
         ->listen(Saving::class, Listeners\SaveFrontToDatabase::class),
 
     (new Extend\SimpleFlarumSearch(DiscussionSearcher::class))
-        ->addGambit(FrontGambit::class),
+        ->addGambit(Query\FrontFilterGambit::class),
 
     (new Extend\Filter(DiscussionFilterer::class))
-        ->addFilter(FrontGambit::class),
+        ->addFilter(Query\FrontFilterGambit::class),
 
     (new Extend\Model(Discussion::class))
         ->dateAttribute('frontdate'),
@@ -46,4 +45,10 @@ return [
 
     (new Extend\ApiController(ListDiscussionsController::class))
         ->addSortField('frontdate'),
+
+    (new Extend\ServiceProvider())
+        ->register(Provider\FrontpageSortmapProvider::class),
+
+    (new Extend\Middleware('forum'))
+        ->add(Middleware\AddFrontpageFilter::class),
 ];

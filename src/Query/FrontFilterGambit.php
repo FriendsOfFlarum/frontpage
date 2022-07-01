@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FoF\FrontPage\Gambits;
+namespace FoF\FrontPage\Query;
 
 use Flarum\Filter\FilterInterface;
 use Flarum\Filter\FilterState;
@@ -17,7 +17,7 @@ use Flarum\Query\AbstractQueryState;
 use Flarum\Search\AbstractRegexGambit;
 use Illuminate\Database\Query\Builder;
 
-class FrontGambit extends AbstractRegexGambit implements FilterInterface
+class FrontFilterGambit extends AbstractRegexGambit implements FilterInterface
 {
     /**
      * @return string

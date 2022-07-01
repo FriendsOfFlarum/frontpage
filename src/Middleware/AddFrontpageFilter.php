@@ -20,7 +20,7 @@ class AddFrontpageFilter implements MiddlewareInterface
         if (Arr::get($params, 'sort') === 'front') {
             $request = $request->withQueryParams(
                 array_merge($params, [
-                    'filter' => ['frontpage' => true]
+                    'filter' => ['frontpage' => true],
                 ])
             );
 

@@ -4,7 +4,7 @@ import addFrontPage from './addFrontPage';
 import addStickyBadge from './addStickyBadge';
 
 app.initializers.add('fof/frontpage', () => {
-    addFrontSort();
-    addFrontPage();
-    addStickyBadge();
+  addFrontSort();
+  addFrontPage();
+  addStickyBadge();
 });

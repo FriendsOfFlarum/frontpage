@@ -4,7 +4,11 @@ import DiscussionListState from 'flarum/forum/states/DiscussionListState';
 export default function () {
     extend(DiscussionListState.prototype, 'requestParams', function (params) {
         if (this.params.sort === 'front') {
-            params.filter.q = (params.filter.q || '') + 'is:frontpage';
+            if (params.filter.q) {
+                params.filter.q = (params.filter.q || '') + 'is:frontpage';
+            } else {
+                params.filter.frontpage = true;
+            }
         }
     });
 

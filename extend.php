@@ -38,7 +38,8 @@ return [
         ->addFilter(Query\FrontFilterGambit::class),
 
     (new Extend\Model(Discussion::class))
-        ->dateAttribute('frontdate'),
+        ->cast('frontdate', 'datetime')
+        ->cast('frontpage', 'bool'),
 
     (new Extend\ApiSerializer(DiscussionSerializer::class))
         ->attributes(Listeners\AddApiAttributes::class),

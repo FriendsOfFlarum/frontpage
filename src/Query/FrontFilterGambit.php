@@ -48,9 +48,9 @@ class FrontFilterGambit extends AbstractRegexGambit implements FilterInterface
     }
 
     /**
-     * @param FilterState $search
+     * @param FilterState $filterState
      * @param string      $filterValue
-     * @param mixed       $negate
+     * @param bool        $negate
      *
      * @return void
      */

@@ -35,25 +35,11 @@ class FrontFilterGambit extends AbstractRegexGambit implements FilterInterface
         return 'frontpage';
     }
 
-    /**
-     * @param AbstractQueryState $search
-     * @param array              $matches
-     * @param mixed              $negate
-     *
-     * @return void
-     */
     public function conditions(AbstractQueryState $search, array $matches, $negate)
     {
         $this->constrain($search->getQuery(), $negate);
     }
 
-    /**
-     * @param FilterState $search
-     * @param string      $filterValue
-     * @param mixed       $negate
-     *
-     * @return void
-     */
     public function filter(FilterState $filterState, string $filterValue, bool $negate)
     {
         $this->constrain($filterState->getQuery(), $negate);

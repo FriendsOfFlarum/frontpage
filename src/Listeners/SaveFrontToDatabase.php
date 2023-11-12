@@ -11,16 +11,11 @@
 
 namespace FoF\FrontPage\Listeners;
 
-use DateTime;
+use Carbon\Carbon;
 use Flarum\Discussion\Event\Saving;
 
 class SaveFrontToDatabase
 {
-    /**
-     * @param Saving $event
-     *
-     * @return [type]
-     */
     public function handle(Saving $event)
     {
         if (isset($event->data['attributes']['frontpage'])) {
@@ -31,7 +26,7 @@ class SaveFrontToDatabase
             if ((bool) $discussion->frontpage === $front) {
                 return;
             }
-            $discussion->frontdate = new DateTime();
+            $discussion->frontdate = Carbon::now();
 
             $discussion->frontpage = $front;
         }

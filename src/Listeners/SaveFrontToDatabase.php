@@ -12,7 +12,6 @@
 namespace FoF\FrontPage\Listeners;
 
 use Carbon\Carbon;
-use DateTime;
 use Flarum\Discussion\Event\Saving;
 
 class SaveFrontToDatabase

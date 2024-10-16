@@ -5,9 +5,6 @@ import Button from 'flarum/common/components/Button';
 import Model from 'flarum/common/Model';
 import Discussion from 'flarum/common/models/Discussion';
 
-Discussion.prototype.frontpage = Model.attribute('frontpage');
-Discussion.prototype.front = Model.attribute('front');
-
 export default function addFrontPage() {
   extend(DiscussionControls, 'moderationControls', function (items, discussion) {
     let isFront = discussion.frontpage();

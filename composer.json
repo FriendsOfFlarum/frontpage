@@ -21,9 +21,10 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
-        "flarum/core": "^1.7.0"
+        "php": "^8.2",
+        "flarum/core": "^2.0.0-beta"
     },
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Christian Lopez",
@@ -56,7 +57,7 @@
         }
     },
     "require-dev": {
-        "flarum/phpstan": "*"
+        "flarum/phpstan": "^2.0.0-beta"
     },
     "scripts": {
         "analyse:phpstan": "phpstan analyse",

@@ -11,10 +11,9 @@
 
 namespace FoF\FrontPage\Query;
 
+use Flarum\Search\AbstractQueryState;
 use Flarum\Search\Filter\FilterInterface;
 use Flarum\Search\SearchState;
-use Flarum\Search\AbstractQueryState;
-use Illuminate\Database\Query\Builder;
 
 class FrontFilter implements FilterInterface
 {

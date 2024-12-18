@@ -11,12 +11,12 @@
 
 namespace FoF\FrontPage;
 
-use Flarum\Search\Database\DatabaseSearchDriver;
+use Flarum\Api\Resource;
+use Flarum\Api\Sort\SortColumn;
 use Flarum\Discussion\Discussion;
 use Flarum\Discussion\Search\DiscussionSearcher;
 use Flarum\Extend;
-use Flarum\Api\Resource;
-use Flarum\Api\Sort\SortColumn;
+use Flarum\Search\Database\DatabaseSearchDriver;
 use FoF\FrontPage\Api\DiscussionResourceFields;
 
 return [

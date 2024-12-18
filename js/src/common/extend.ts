@@ -1,5 +1,4 @@
 import Extend from 'flarum/common/extenders';
+import FrontGambit from './gambits/FrontGambit';
 
-export default [
-  // Add your common extenders here
-];
+export default [new Extend.Search().gambit('discussions', FrontGambit)];

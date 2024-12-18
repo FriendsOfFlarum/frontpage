@@ -11,17 +11,13 @@
 
 namespace FoF\FrontPage;
 
-use Flarum\Api\Controller\ListDiscussionsController;
-use Flarum\Api\Serializer\DiscussionSerializer;
+use Flarum\Search\Database\DatabaseSearchDriver;
 use Flarum\Discussion\Discussion;
-use Flarum\Discussion\Event\Saving;
-use Flarum\Discussion\Filter\DiscussionFilterer;
 use Flarum\Discussion\Search\DiscussionSearcher;
 use Flarum\Extend;
-use Flarum\Api\Context;
-use Flarum\Api\Endpoint;
 use Flarum\Api\Resource;
-use Flarum\Api\Schema;
+use Flarum\Api\Sort\SortColumn;
+use FoF\FrontPage\Api\DiscussionResourceFields;
 
 return [
     (new Extend\Frontend('forum'))
@@ -32,20 +28,17 @@ return [
         ->js(__DIR__.'/js/dist/admin.js'),
     new Extend\Locales(__DIR__.'/resources/locale'),
 
-    (new Extend\Event())
-        ->listen(Saving::class, Listeners\SaveFrontToDatabase::class),
-
     (new Extend\Model(Discussion::class))
         ->cast('frontdate', 'datetime')
         ->cast('frontpage', 'bool'),
 
-    // @TODO: Replace with the new implementation https://docs.flarum.org/2.x/extend/api#extending-api-resources
-    (new Extend\ApiSerializer(DiscussionSerializer::class))
-        ->attributes(Listeners\AddApiAttributes::class),
+    (new Extend\ApiResource(Resource\DiscussionResource::class))
+        ->fields(DiscussionResourceFields::class),
 
-    // @TODO: Replace with the new implementation https://docs.flarum.org/2.x/extend/api#extending-api-resources
-    (new Extend\ApiController(ListDiscussionsController::class))
-        ->addSortField('frontdate'),
+    (new Extend\ApiResource(Resource\DiscussionResource::class))
+        ->sorts(fn () => [
+            SortColumn::make('frontdate'),
+        ]),
 
     (new Extend\ServiceProvider())
         ->register(Provider\FrontpageSortmapProvider::class),
@@ -53,6 +46,6 @@ return [
     (new Extend\Middleware('forum'))
         ->add(Middleware\AddFrontpageFilter::class),
 
-    (new Extend\SearchDriver(\Flarum\Search\Database\DatabaseSearchDriver::class))
+    (new Extend\SearchDriver(DatabaseSearchDriver::class))
         ->addFilter(DiscussionSearcher::class, Query\FrontFilter::class),
 ];

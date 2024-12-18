@@ -8,7 +8,7 @@ export default [
   new Extend.Admin().permission(
     () => ({
       icon: 'fas fa-home',
-      label: app.translator.trans('core.admin.permissions.can_push_to_frontpage_label'),
+      label: app.translator.trans('fof-frontpage.admin.permissions.can_push_to_frontpage_label'),
       permission: 'discussion.front',
     }),
     'moderate'

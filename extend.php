@@ -35,12 +35,6 @@ return [
     (new Extend\Event())
         ->listen(Saving::class, Listeners\SaveFrontToDatabase::class),
 
-    (new Extend\SimpleFlarumSearch(DiscussionSearcher::class))
-        ->addGambit(Query\FrontFilterGambit::class),
-
-    (new Extend\Filter(DiscussionFilterer::class))
-        ->addFilter(Query\FrontFilterGambit::class),
-
     (new Extend\Model(Discussion::class))
         ->cast('frontdate', 'datetime')
         ->cast('frontpage', 'bool'),
@@ -58,4 +52,7 @@ return [
 
     (new Extend\Middleware('forum'))
         ->add(Middleware\AddFrontpageFilter::class),
+
+    (new Extend\SearchDriver(\Flarum\Search\Database\DatabaseSearchDriver::class))
+        ->addFilter(DiscussionSearcher::class, Query\FrontFilter::class),
 ];

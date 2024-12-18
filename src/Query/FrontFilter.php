@@ -11,21 +11,16 @@
 
 namespace FoF\FrontPage\Query;
 
-use Flarum\Filter\FilterInterface;
-use Flarum\Filter\FilterState;
-use Flarum\Query\AbstractQueryState;
-use Flarum\Search\AbstractRegexGambit;
+use Flarum\Search\Filter\FilterInterface;
+use Flarum\Search\SearchState;
+use Flarum\Search\AbstractQueryState;
 use Illuminate\Database\Query\Builder;
 
-class FrontFilterGambit extends AbstractRegexGambit implements FilterInterface
+class FrontFilter implements FilterInterface
 {
     /**
      * @return string
      */
-    public function getGambitPattern()
-    {
-        return 'is:frontpage';
-    }
 
     /**
      * @return string
@@ -40,13 +35,13 @@ class FrontFilterGambit extends AbstractRegexGambit implements FilterInterface
         $this->constrain($search->getQuery(), $negate);
     }
 
-    public function filter(FilterState $filterState, string $filterValue, bool $negate)
+    public function filter(SearchState $state, array|string $value, bool $negate): void
     {
-        $this->constrain($filterState->getQuery(), $negate);
+        $this->constrain($state->getQuery(), $negate);
     }
 
-    protected function constrain(Builder $query, bool $negate)
+    protected function constrain(\Illuminate\Database\Eloquent\Builder $query, bool $actor): void
     {
-        $query->where('frontpage', !$negate);
+        $query->where('frontpage', !$actor);
     }
 }

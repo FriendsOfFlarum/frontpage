@@ -1,3 +1,4 @@
+import commonExtend from '../common/extend';
 import Extend from 'flarum/common/extenders';
 import Discussion from 'flarum/common/models/Discussion';
 import Model from 'flarum/common/Model';

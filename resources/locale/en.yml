@@ -10,3 +10,9 @@ core:
   admin:
     permissions:
       can_push_to_frontpage_label: Can Push to FrontPage
+
+fof-frontpage:
+  lib:
+    gambits:
+      frontpage:
+        key: frontpage

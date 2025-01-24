@@ -33,6 +33,6 @@ class FrontFilter implements FilterInterface
 
     protected function constrain(Builder $query, bool $negate): void
     {
-        $query->where('frontpage', ! $negate);
+        $query->where('frontpage', !$negate);
     }
 }

@@ -11,36 +11,28 @@
 
 namespace FoF\FrontPage\Query;
 
-use Flarum\Search\AbstractQueryState;
+use Flarum\Search\Database\DatabaseSearchState;
 use Flarum\Search\Filter\FilterInterface;
 use Flarum\Search\SearchState;
+use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * @implements FilterInterface<DatabaseSearchState>
+ */
 class FrontFilter implements FilterInterface
 {
-    /**
-     * @return string
-     */
-
-    /**
-     * @return string
-     */
     public function getFilterKey(): string
     {
         return 'frontpage';
     }
 
-    public function conditions(AbstractQueryState $search, array $matches, $negate)
-    {
-        $this->constrain($search->getQuery(), $negate);
-    }
-
-    public function filter(SearchState $state, array|string $value, bool $negate): void
+    public function filter(SearchState $state, string|array $value, bool $negate): void
     {
         $this->constrain($state->getQuery(), $negate);
     }
 
-    protected function constrain(\Illuminate\Database\Eloquent\Builder $query, bool $actor): void
+    protected function constrain(Builder $query, bool $negate): void
     {
-        $query->where('frontpage', !$actor);
+        $query->where('frontpage', ! $negate);
     }
 }

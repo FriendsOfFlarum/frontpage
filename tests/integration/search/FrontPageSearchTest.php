@@ -68,7 +68,7 @@ class FrontPageSearchTest extends TestCase
         return [
             'admin sees 2 discussions with the frontpage filter'     => [1, 2],
             'moderator sees 2 discussions with the frontpage filter' => [3, 2],
-            'member sees 1 discussion with the frontpage filter'    => [2, 1],
+            'member sees 1 discussion with the frontpage filter'     => [2, 1],
         ];
     }
 

@@ -1,12 +1,6 @@
 import app from 'flarum/admin/app';
+export { default as extend } from './extend';
 
-app.initializers.add('fof/frontpage', () => {
-  app.extensionData.for('fof-frontpage').registerPermission(
-    {
-      icon: 'fas fa-home',
-      label: app.translator.trans('core.admin.permissions.can_push_to_frontpage_label'),
-      permission: 'discussion.front',
-    },
-    'moderate'
-  );
+app.initializers.add('fof-frontpage', () => {
+  // Nothing here yet
 });

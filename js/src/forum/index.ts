@@ -5,7 +5,7 @@ import addStickyBadge from './extenders/addStickyBadge';
 
 export { default as extend } from './extend';
 
-app.initializers.add('fof/frontpage', () => {
+app.initializers.add('fof-frontpage', () => {
   addFrontSort();
   addFrontPage();
   addStickyBadge();

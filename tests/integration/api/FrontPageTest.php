@@ -4,15 +4,15 @@ namespace FoF\FrontPage\Tests\integration\forum;
 
 use Carbon\Carbon;
 use Flarum\Discussion\Discussion;
+use Flarum\Group\Group;
 use Flarum\Post\Post;
+use Flarum\Tags\Tag;
 use Flarum\Testing\integration\RetrievesAuthorizedUsers;
 use Flarum\Testing\integration\TestCase;
 use Flarum\User\User;
-use Flarum\Group\Group;
-use Flarum\Tags\Tag;
-use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\Attributes\DataProvider;
 use FoF\FrontPage\Tests\integration\ExtensionDepsTrait;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class FrontPageTest extends TestCase
 {
@@ -89,11 +89,11 @@ class FrontPageTest extends TestCase
     public function testActorReceivesExpectedResponse(int $userId, int $discussionId, int $expectedStatus): void
     {
         $response = $this->send(
-            $this->request('PATCH', '/api/discussions/' . $discussionId, [
+            $this->request('PATCH', '/api/discussions/'.$discussionId, [
                 'authenticatedAs' => $userId,
-                'json' => [
+                'json'            => [
                     'data' => [
-                        'type' => 'discussions',
+                        'type'       => 'discussions',
                         'attributes' => [
                             'frontpage' => true,
                         ],

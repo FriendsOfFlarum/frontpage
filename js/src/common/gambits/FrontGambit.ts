@@ -6,6 +6,10 @@ export default class FrontGambit extends BooleanGambit {
     return app.translator.trans('fof-frontpage.lib.gambits.frontpage.key', {}, true);
   }
 
+  canonicalKey() {
+    return 'frontpage';
+  }
+
   filterKey() {
     return 'frontpage';
   }

@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "flarum/core": "^2.0.0-beta"
+        "flarum/core": "2.x-dev"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -55,12 +55,15 @@
                 "githubActions": true,
                 "backendTesting": true
             }
+        },
+        "branch-alias": {
+            "dev-2.x": "2.x-dev"
         }
     },
     "require-dev": {
-        "flarum/phpstan": "^2.0.0-beta",
-        "flarum/testing": "^2.0.0-beta",
-        "flarum/tags": "^2.0.0-beta"
+        "flarum/phpstan": "^2.1.0-beta.1",
+        "flarum/testing": "^2.1.0-beta.1",
+        "flarum/tags": "^2.1.0-beta.1"
     },
     "scripts": {
         "analyse:phpstan": "phpstan analyse",

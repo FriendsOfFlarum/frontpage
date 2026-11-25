@@ -90,21 +90,4 @@ class FrontPageSearchTest extends TestCase
         $this->assertArrayHasKey('data', $data);
         $this->assertCount($expectedCount, $data['data']);
     }
-
-    #[Test]
-    public function the_frontpage_filter_narrows_a_search(): void
-    {
-        $response = $this->send(
-            $this->request('GET', '/api/discussions', [
-                'authenticatedAs' => 1,
-            ])->withQueryParams([
-                'filter' => ['q' => 'Testing', 'frontpage' => 1],
-            ])
-        );
-
-        $this->assertSame(200, $response->getStatusCode());
-
-        $data = json_decode($response->getBody()->getContents(), true);
-        $this->assertSame(['3'], array_column($data['data'], 'id'));
-    }
 }

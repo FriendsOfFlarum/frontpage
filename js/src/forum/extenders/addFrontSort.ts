@@ -7,11 +7,7 @@ import type { SortMap } from 'flarum/common/states/PaginatedListState';
 export default function () {
   extend(DiscussionListState.prototype, 'requestParams', function (this: DiscussionListState, params: PaginatedListParams) {
     if (this.params.sort === 'front') {
-      if (params.filter.q) {
-        params.filter.q = (params.filter.q || '') + 'is:frontpage';
-      } else {
-        params.filter.frontpage = true;
-      }
+      params.filter.frontpage = true;
     }
   });
 
